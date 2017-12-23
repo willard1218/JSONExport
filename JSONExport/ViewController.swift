@@ -460,6 +460,7 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate, NSTabl
         filesBuilder.firstLine = firstLineField.stringValue
         filesBuilder.lang = selectedLang!
         filesBuilder.classPrefix = classPrefixField.stringValue
+        filesBuilder.classSuffix = allClassSuffix
         filesBuilder.parentClassName = parentClassName.stringValue
         return filesBuilder
     }

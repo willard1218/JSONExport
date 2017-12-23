@@ -173,7 +173,7 @@ class FileRepresenter{
         if let me = ABAddressBook.shared()?.me(){
             
             if let firstName = me.value(forProperty: kABFirstNameProperty as String) as? String{
-                fileContent += "//\n//\tCreate by \(firstName)"
+                fileContent += "//\n//\tCreate by \(authorName)"
                 if let lastName = me.value(forProperty: kABLastNameProperty as String) as? String{
                    fileContent += " \(lastName)"
                 }
@@ -189,7 +189,7 @@ class FileRepresenter{
             fileContent += ". All rights reserved.\n"
         }
         
-        fileContent += "//\tModel file generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport"
+        fileContent += fileGeneratedComment
         
         if let langAuthor = lang.author{
             fileContent += "\n\n//\tThe \"\(lang.displayLangName!)\" support has been made available by \(langAuthor.name!)"
@@ -220,8 +220,9 @@ class FileRepresenter{
     */
     func getTodayFormattedDay() -> String
     {
-        let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: Date())
-        return "\(components.day!)/\(components.month!)/\(components.year!)"
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = createDateFormatterString
+        return dateformatter.string(from: Date())
     }
 
     /**

@@ -37,6 +37,11 @@ class FilesContentBuilder{
     var classPrefix = ""
     
     /**
+     The suffix used for first level type names (and file names as well)
+     */
+    var classSuffix = ""
+    
+    /**
     The language for which the files' content should be created
     */
     var lang : LangModel!
@@ -79,6 +84,11 @@ class FilesContentBuilder{
         if !className.hasPrefix(classPrefix){
             className = "\(classPrefix)\(className)"
         }
+        
+        if !className.hasSuffix(classSuffix){
+            className = "\(className)\(classSuffix)"
+        }
+        
         if toOneRelationWithProperty != nil && lang.supportMutualRelationships != nil && lang.supportMutualRelationships!{
             properties.append(toOneRelationWithProperty)
             
@@ -367,6 +377,9 @@ class FilesContentBuilder{
             swiftClassName = "\(classPrefix)\(swiftClassName)"
         }
         
+        if !swiftClassName.hasSuffix(classSuffix){
+            swiftClassName = "\(swiftClassName)\(classSuffix)"
+        }
         return swiftClassName
     }
     

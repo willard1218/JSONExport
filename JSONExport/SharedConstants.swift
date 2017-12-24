@@ -48,5 +48,6 @@ let additionalCustomTypeProperty = "<!AdditionalForCustomTypeProperty!>"
 
 let fileGeneratedComment = "//\tModel file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport\n\n"
 let authorName = "willard"
+let allOrganization = ""
 let allClassSuffix = ""
 let createDateFormatterString = "yyyy/MM/dd"

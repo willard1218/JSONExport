@@ -182,9 +182,7 @@ class FileRepresenter{
             
             fileContent += " on \(getTodayFormattedDay())\n//\tCopyright © \(getYear())"
             
-            if let organization = me.value(forProperty: kABOrganizationProperty as String) as? String{
-                fileContent += " \(organization)"
-            }
+            fileContent += allOrganization
             
             fileContent += ". All rights reserved.\n"
         }
